@@ -5,4 +5,4 @@ for i in range(ord("a"), ord("z")):
     elif chr(i) == 'e':
         continue
     else:
-        print("{:c}".format(i))
+        print("{:c}".format(i), end='')
