@@ -18,8 +18,14 @@ int check_cycle(listint_t *list)
 	while (list != NULL)
 	{
 		if (list->next == tmp)
+		{
+			tmp = NULL;
+			free(tmp);
 			return (1);
+		}
 		list = list->next;
 	}
+	tmp = NULL;
+	free(tmp);
 	return (0);
 }
