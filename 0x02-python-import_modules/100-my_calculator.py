@@ -3,12 +3,7 @@ import sys
 from calculator_1 import add, sub, mul, div
 if __name__ == "__main__":
     lists = sys.argv
-    arg = 0
-    for i in range(0, len(lists)):
-        if lists[i] != ';':
-            arg = arg + 1
-        else:
-            break
+    arg = len(lists)
     if arg != 4:
         print('Usage: ./100-my_calculator.py <a> <operator> <b>')
         sys.exit(1)
