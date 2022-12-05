@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 def add_tuple(tuple_a=(), tuple_b=()):
-    if tuple_a or tuple_b:
         zero = (0,)
         for i in range(3):
             tuple_a = tuple_a + zero
