@@ -5,4 +5,6 @@ def multiple_returns(sentence):
         tuple_b = tuple_b + (sentence[0], )
         return tuple_b
     else:
-        return None
+        t = (0, )
+        t = t + (None, )
+        return t
