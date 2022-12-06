@@ -49,10 +49,20 @@ int is_palindrome(listint_t **head)
 	while (ol->next != NULL)
 	{
 		if (find_index(*head, len) != find_index(*head, count))
+		{
+			ol = NULL;
+			lc = NULL;
+			free(ol);
+			free(lc);
 			return (0);
+		}
 		count = count + 1;
 		len = len - 1;
 		ol = ol->next;
 	}
+	ol = NULL;
+	lc = NULL;
+	free(ol);
+	free(lc);
 	return (1);
 }
