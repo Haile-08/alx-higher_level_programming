@@ -15,7 +15,7 @@ int check_cycle(listint_t *list)
 
 	tmp = malloc(sizeof(listint_t));
 	if (tmp == NULL)
-		return (1);
+		exit(1);
 	tmp = list;
 	while (list != NULL)
 	{
