@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-import sys
 """Define a class Square."""
 
 
@@ -45,7 +44,7 @@ class Square:
         if self.__size > 0:
             for i in range(self.__size):
                 for i in range(self.__size):
-                    print("#", file=sys.stdout, end="")
+                    print("#", end="")
                 print("")
         elif self.__size == 0:
             print("")
