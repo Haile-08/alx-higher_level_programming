@@ -25,7 +25,10 @@ class Rectangle:
 
     @property
     def width(self):
-        """A getter function for width"""
+        """A getter function for width
+        Returns:
+            self.__width: the width of the rectangle
+        """
         return self.__width
 
     @width.setter
@@ -42,7 +45,10 @@ class Rectangle:
 
     @property
     def height(self):
-        """A getter function for height"""
+        """A getter function for height
+        Returns:
+            self.__height: the height of the rectangle
+        """
         return self.__height
 
     @height.setter
