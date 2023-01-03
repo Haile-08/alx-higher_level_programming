@@ -82,7 +82,7 @@ class Rectangle:
     def __str__(self):
         """Define the print() representation of a rectangle"""
         if self.__width == 0 or self.__height == 0:
-            [print("") for i in range(0, 1)]
+            return ("")
         else:
             for i in range(0, self.__height):
                 [print("#", end="") for i in range(0, self.__width)]
