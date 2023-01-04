@@ -1,14 +1,12 @@
 #!/usr/bin/python3
 """
     Add two number
+    =============
+    args: a and b
 """
 def add_integer(a, b=98):
     """Add two numbers
-    args:
-        a: an integer or float
-        b: an integer or float
-    Returns:
-        the sum of two integer arguments
+    Returns: the sum
     """
     if type(a) not in [int, float]:
         raise TypeError("a must be an integer")
