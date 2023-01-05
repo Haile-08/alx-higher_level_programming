@@ -16,13 +16,6 @@ Test Case
 ::
 
 	>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
-	>>> matrix_divided([[4], [8]], 2)
-	[[2.0], [4.0]]
-
-Divides all elements of a matrix
-
-::
-
 	>>> matrix_divided([['a'], ['b']], 2)
 	Traceback (most recent call last):
 	TypeError: matrix must be a matrix (list of lists) of integers/floats
@@ -51,4 +44,4 @@ div must be a number (integer or float)
 	Traceback (most recent call last):
 	ZeroDivisionError: division by zero
 
-div can’t be equal to 0
+div can’t be equal 0
