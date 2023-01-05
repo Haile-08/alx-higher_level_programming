@@ -23,11 +23,5 @@ def matrix_divided(matrix, div):
     if div == 0:
         raise ZeroDivisionError("division by zero")
 
-    for i in matrix:
-        row = []
-        for j in i:
-            num = j/div
-            row.append(num)
-        div_list.append(row)
-        row.clear()
+    div_list = [[round(j / div, 2) for j in i] for i in matrix]
     return div_list
