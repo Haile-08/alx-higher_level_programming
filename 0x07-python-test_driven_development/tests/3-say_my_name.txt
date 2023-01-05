@@ -1,0 +1,42 @@
+==============================================
+doctest text file for the 3-say_my_name module
+==============================================
+
+
+Test the ``say_my_name`` function
+---------------------------------
+
+This function prints My name is <first name> <last name>
+
+Test case
+=========
+
+::
+
+	>>> say_my_name = __import__('3-say_my_name').say_my_name
+	>>> say_my_name("John", "Smith")
+	My name is John Smith
+
+prints My name is <first name> <last name>
+
+::
+
+	>>> say_my_name(2, "haile")
+	Traceback (most recent call last):
+	TypeError: first_name must be a string
+
+first_name must be strings
+
+::
+
+	>>> say_my_name("Haile", 4.6)
+	Traceback (most recent call last):
+	TypeError: last_name must be a string
+
+last_name must be strings
+
+::
+
+	>>> say_my_name(None)
+	Traceback (most recent call last):
+	TypeError: first_name must be a string
