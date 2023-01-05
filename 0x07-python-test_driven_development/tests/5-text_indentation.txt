@@ -1,0 +1,25 @@
+=============================================
+Doctest for the ``5-text_indentation`` module
+=============================================
+
+
+Test the ``text_indentation`` function
+--------------------------------------
+
+Function that prints a text with 2 new lines after each of these characters: ., ? and :
+
+Test case
+=========
+
+::
+
+	>>> text_indentation = __import__('5-text_indentation').text_indentation
+	>>> text_indentation(1)
+	Traceback (most recent call last):
+	TypeError: text must be a string
+
+::
+
+	>>> text_indentation(None)
+	Traceback (most recent call last):
+	TypeError: text must be a string
