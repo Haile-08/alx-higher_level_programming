@@ -1,0 +1,103 @@
+=====================
+Test for 1-my_list.py
+=====================
+
+Test the print_sorted method
+----------------------------
+
+This print_sorted print a sorted value of the list
+
+--------------------------------------------------
+
+::
+
+	>>> MyList = __import__('1-my_list').MyList
+	>>> my_list = MyList()
+	>>> my_list.append(1)
+	>>> my_list.append(4)
+	>>> my_list.append(2)
+	>>> my_list.append(3)
+	>>> my_list.append(5)
+	>>> print(my_list)
+	[1, 4, 2, 3, 5]
+	>>> my_list.print_sorted()
+	[1, 2, 3, 4, 5]
+
+Common case
+
+::
+
+	>>> my_list2.print_sorted()
+	Traceback (most recent call last):
+	NameError: name 'my_list2' is not defined
+
+Not define list object
+
+::
+
+	>>> a = [1, 6, 4]
+	>>> my_list = MyList(a)
+	>>> my_list.print_sorted()
+	[1, 4, 6]
+
+Pass a list in constructor
+
+::
+
+	>>> a = []
+	>>> my_list = MyList(a)
+	>>> my_list.print_sorted()
+	[]
+
+pass an empty list in constructor
+
+::
+
+	>>> my_list = MyList()
+	>>> my_list.append(1)
+	>>> my_list.print_sorted()
+	[1]
+	>>> print(my_list)
+	[1]
+
+pass a unique number
+
+::
+
+	>>> my_list = MyList()
+	>>> my_list.append(1)
+	>>> my_list.append(1)
+	>>> my_list.append(1)
+	>>> my_list.print_sorted()
+	[1, 1, 1]
+
+Pass same value
+
+::
+
+	>>> my_list = MyList()
+	>>> my_list.append(-4)
+	>>> my_list.append(3)
+	>>> my_list.append(-7)
+	>>> my_list.print_sorted()
+	[-7, -4, 3]
+
+Pass negative number
+
+::
+
+	>>> a = ['a', 3]
+	>>> my_list = MyList(a)
+	Traceback (most recent call last):
+	ValueError: Element should be int or float
+
+Pass a non int value
+
+::
+
+	>>> a = 3
+	>>> my_list = MyList(a)
+	Traceback (most recent call last):
+	TypeError: Input should be a list
+
+Pass a non list value
