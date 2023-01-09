@@ -1,0 +1,55 @@
+========================================
+doctest text file for BaseGeometry class
+========================================
+
+Test the BaseGeometry class
+---------------------------
+
+::
+
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+	>>> bg = BaseGeometry()
+	>>> bg.integer_validator("my_int", 12)
+	>>> bg.integer_validator("width", 89)
+
+Common test case
+
+::
+
+	>>> bg.integer_validator("width", "haile")
+	Traceback (most recent call last):
+	TypeError: width must be an integer
+
+Test for string value
+
+::
+
+	>>> bg.integer_validator("haile", None)
+	Traceback (most recent call last):
+	TypeError: haile must be an integer
+
+Test for None value
+
+::
+
+	>>> bg.integer_validator("haile", -1)
+	Traceback (most recent call last):
+	ValueError: haile must be greater than 0
+
+Test for negative value
+
+::
+
+	>>> bg.integer_validator("haile", 0)
+	Traceback (most recent call last):
+	ValueError: haile must be greater than 0
+
+Test for zero value
+
+::
+
+	>>> bg.area()
+	Traceback (most recent call last):
+	Exception: area() is not implemented
+
+Test for area method
