@@ -13,6 +13,7 @@ class MyList(list):
                 raise ValueError("Element should be int or float")
         for i in a:
             self.append(i)
+
     def print_sorted(self):
         """Print the sorted list"""
         print(sorted(self))
