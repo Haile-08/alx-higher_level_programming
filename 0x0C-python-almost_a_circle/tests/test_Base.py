@@ -1,12 +1,13 @@
 import unittest
 from models.base import Base
 
+
 class TestBaseClass(unittest.TestCase):
 
     def test_class_instance(self):
         b1 = Base()
         b2 = Base()
-        self.assertEqual(b1.id, b2.id -1)
+        self.assertEqual(b1.id, b2.id - 1)
 
     def test_class_instance_with_none(self):
         b3 = Base(None)
@@ -40,6 +41,7 @@ class TestBaseClass(unittest.TestCase):
     def test_for_more_than_1_arg(self):
         with self.assertRaises(TypeError):
             print(Base(1, 3))
-        
+
+
 if __name__ == '__main__':
     unittest.main()
