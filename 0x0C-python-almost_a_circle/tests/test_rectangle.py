@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import unittest
 from models.rectangle import Rectangle
 from models.base import Base
@@ -220,6 +221,30 @@ class TestRectangleClass_y(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "y must be >= 0"):
             Rectangle(3, 1, 2, -6)
 
+
+class TestRectangleClass_area(unittest.TestCase):
+
+    def test_area(self):
+        self.assertEqual(10, Rectangle(2, 5).area())
+
+    def test_area_rectangle(self):
+        r = Rectangle(10, 2, 0, 0, 0)
+        self.assertEqual(20, r.area())
+
+    def test_area_change(self):
+        r = Rectangle(10, 2, 0, 0, 0)
+        r.width = 7
+        r.height = 10
+        self.assertEqual(70, r.area())
+
+    def test_area_value_input(self):
+        with self.assertRaises(TypeError):
+            print(Rectangle(1, 4).area(10))
+
+
+class TestRectangleClass_display(unittest.TestCase):
+
+    def test_display(self):
 
 if __name__ == '__main__':
     unittest.main()
