@@ -266,6 +266,7 @@ class TestRectangleClass_str(unittest.TestCase):
         s = '[Rectangle] ({}) 0/0 - 1/2'.format(rs4.id)
         self.assertEqual(s, str(rs4))
 
+
 class TestRectangleClass_display(unittest.TestCase):
 
     def test_display(self):
@@ -282,13 +283,28 @@ class TestRectangleClass_display(unittest.TestCase):
             print(rd2.display(2))
 
     def test_display_all_param(self):
-        rd3 = Rectangle(3, 5, 1, 2, 4)
+        rd3 = Rectangle(3, 5)
         capture = io.StringIO()
         sys.stdout = capture
         rd3.display()
         sys.stdout = sys.__stdout__
         self.assertEqual("###\n###\n###\n###\n###\n", capture.getvalue())
 
+    def test_display_x(self):
+        rd4 = Rectangle(3, 3, 1)
+        c = io.StringIO()
+        sys.stdout = c
+        rd4.display()
+        sys.stdout = sys.__stdout__
+        self.assertEqual(" ###\n ###\n ###\n", c.getvalue())
+
+    def test_display_y(self):
+        rd5 = Rectangle(3, 2, 1, 2)
+        c= io.StringIO()
+        sys.stdout = c
+        rd5.display()
+        sys.stdout = sys.__stdout__
+        self.assertEqual("\n\n ###\n ###\n", c.getvalue())
 
 if __name__ == '__main__':
     unittest.main()
