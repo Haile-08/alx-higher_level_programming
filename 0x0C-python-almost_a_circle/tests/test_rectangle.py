@@ -300,7 +300,7 @@ class TestRectangleClass_display(unittest.TestCase):
 
     def test_display_y(self):
         rd5 = Rectangle(3, 2, 1, 2)
-        c= io.StringIO()
+        c = io.StringIO()
         sys.stdout = c
         rd5.display()
         sys.stdout = sys.__stdout__
@@ -390,7 +390,9 @@ class TestRectangleClass_update_args(unittest.TestCase):
 
     def test_update_kwarg_empty(self):
         self.r2.update()
-        self.assertEqual('[Rectangle] ({}) 10/10 - 10/10'.format(self.r2.id), str(self.r2))
+        x = self.r2.id
+        s = '[Rectangle] ({}) 10/10 - 10/10'.format(x)
+        self.assertEqual(s, str(self.r2))
 
     def test_update_kwarg_string(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
@@ -407,6 +409,7 @@ class TestRectangleClass_update_args(unittest.TestCase):
     def test_update_kwarg_zero(self):
         with self.assertRaisesRegex(ValueError, "height must be > 0"):
             self.r2.update(height=0)
-    
+
+
 if __name__ == '__main__':
     unittest.main()
