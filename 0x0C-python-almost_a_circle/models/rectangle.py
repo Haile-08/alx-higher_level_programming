@@ -121,7 +121,20 @@ class Rectangle(Base):
 
     def display(self):
         """Print to stdout"""
+        for y in range(Self.__y):
+            print("")
         for i in range(self.__height):
+            for x in range(self.__x):
+                print(" ", end="")
             for  j in range(self.__width):
                 print("#", end="")
             print("")
+
+    def __str__(self):
+        """Print repsentaion of the class"""
+        i = self.id
+        x = self.__x
+        y = self.__y
+        w = self.__width
+        h = self.__height
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(i, x, y, w, h)

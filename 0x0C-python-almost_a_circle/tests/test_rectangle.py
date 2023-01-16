@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 import unittest
+import io
+import sys
 from models.rectangle import Rectangle
 from models.base import Base
 
@@ -242,9 +244,51 @@ class TestRectangleClass_area(unittest.TestCase):
             print(Rectangle(1, 4).area(10))
 
 
+class TestRectangleClass_str(unittest.TestCase):
+
+    def test_str(self):
+        rs1 = Rectangle(4, 1, 3, 6, 9)
+        s = '[Rectangle] ({}) 3/6 - 4/1'.format(rs1.id)
+        self.assertEqual(s, str(rs1))
+
+    def test__str__(self):
+        rs2 = Rectangle(1, 2, 3, 4, 5)
+        s = '[Rectangle] ({}) 3/4 - 1/2'.format(rs2.id)
+        self.assertEqual(s, rs2.__str__())
+
+    def test__str__input(self):
+        rs3 = Rectangle(1, 2, 3, 4, 5)
+        with self.assertRaises(TypeError):
+            print(rs3.__str__(1))
+
+    def test_str_default(self):
+        rs4 = Rectangle(1, 2)
+        s = '[Rectangle] ({}) 0/0 - 1/2'.format(rs4.id)
+        self.assertEqual(s, str(rs4))
+
 class TestRectangleClass_display(unittest.TestCase):
 
     def test_display(self):
+        rd1 = Rectangle(3, 2)
+        capture = io.StringIO()
+        sys.stdout = capture
+        rd1.display()
+        sys.stdout = sys.__stdout__
+        self.assertEqual("###\n###\n", capture.getvalue())
+
+    def test_display_error(self):
+        rd2 = Rectangle(3, 2)
+        with self.assertRaises(TypeError):
+            print(rd2.display(2))
+
+    def test_display_all_param(self):
+        rd3 = Rectangle(3, 5, 1, 2, 4)
+        capture = io.StringIO()
+        sys.stdout = capture
+        rd3.display()
+        sys.stdout = sys.__stdout__
+        self.assertEqual("###\n###\n###\n###\n###\n", capture.getvalue())
+
 
 if __name__ == '__main__':
     unittest.main()
