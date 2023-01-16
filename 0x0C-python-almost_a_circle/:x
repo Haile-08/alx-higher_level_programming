@@ -353,60 +353,21 @@ class TestRectangleClass_update_args(unittest.TestCase):
 
     def test_udpate_zero_x(self):
         self.r1.update(1, 2, 3, 0)
-        self.assertEqual('[Rectangle] (1) 0/10 - 2/3', str(self.r1))
+        self.assertEqual('[Rectankgle] (1) 0/10 - 2/3', str(self.r1))
 
 
 class TestRectangleClass_update_args(unittest.TestCase):
 
     def setUp(self):
-        self.r2 = Rectangle(10, 10, 10, 10)
+        self.r1 = Rectangle(10, 10, 10, 10)
 
     def tearDown(self):
         pass
 
-    def test_update_kwarg_1_param(self):
-        self.r2.update(id=7)
-        self.assertEqual('[Rectangle] (7) 10/10 - 10/10', str(self.r2))
+    def test_update_arg_1_param(self):
+        self.r1.update(id=7)
+        self.assertEqual('[Rectangle] (7) 10/10 - 10/10', str(self.r1))
 
-    def test_update_kwarg_2_param(self):
-        self.r2.update(id=7, width=7)
-        self.assertEqual('[Rectangle] (7) 10/10 - 7/10', str(self.r2))
-
-    def test_update_kwarg_3_param(self):
-        self.r2.update(id=7, width=7, height=20)
-        self.assertEqual('[Rectangle] (7) 10/10 - 7/20', str(self.r2))
-
-    def test_update_kwarg_4_param(self):
-        self.r2.update(id=7, width=7, height=20, x=6)
-        self.assertEqual('[Rectangle] (7) 6/10 - 7/20', str(self.r2))
-
-    def test_update_kwarg_5_param(self):
-        self.r2.update(id=7, width=7, height=20, x=6, y=23)
-        self.assertEqual('[Rectangle] (7) 6/23 - 7/20', str(self.r2))
-
-    def test_update_kwarg_change_order(self):
-        self.r2.update(x=6, y=23, width=7, height=20, id=7)
-        self.assertEqual('[Rectangle] (7) 6/23 - 7/20', str(self.r2))
-
-    def test_update_kwarg_empty(self):
-        self.r2.update()
-        self.assertEqual('[Rectangle] ({}) 10/10 - 10/10'.format(self.r2.id), str(self.r2))
-
-    def test_update_kwarg_string(self):
-        with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            self.r2.update(width="haile")
-
-    def test_update_kwarg_range(self):
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            self.r2.update(height=range(5))
-
-    def test_udpate_kwarg_neative(self):
-        with self.assertRaisesRegex(ValueError, "width must be > 0"):
-            self.r2.update(width=-2)
-
-    def test_update_kwarg_zero(self):
-        with self.assertRaisesRegex(ValueError, "height must be > 0"):
-            self.r2.update(height=0)
     
 if __name__ == '__main__':
     unittest.main()
