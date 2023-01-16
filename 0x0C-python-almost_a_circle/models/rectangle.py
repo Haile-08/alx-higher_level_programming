@@ -130,6 +130,54 @@ class Rectangle(Base):
                 print("#", end="")
             print("")
 
+    def update(self, *args, **kwargs):
+        """Update the values
+        Args:
+            *args: no-keyword argument
+                - 1st argument represents id attribute
+                - 2nd argument represents width attribute
+                - 3rd argument represent height attribute
+                - 4th argument represents x attribute
+                - 5th argument represents y attribute
+            **kwargs: key/value input
+        """
+        i = 0
+        for arg in args:
+            if i == 0:
+                if arg == None:
+                    self.__init__(self.width, self.height, self.x, self.y)
+                else:
+                    self.id = arg
+            elif i == 1:
+                if not isinstance(arg, int):
+                    raise TypeError("width must be an integer")
+                elif arg <= 0:
+                    raise ValueError("width must be > 0")
+                else:
+                    self.__width = arg
+            elif i == 2:
+                if not isinstance(arg, int):
+                    raise TypeError("height must be an integer")
+                elif arg <= 0:
+                    raise ValueError("height must be > 0")
+                else:
+                    self.__height = arg
+            elif i == 3:
+                if not isinstance(arg, int):
+                    raise TypeError("x must be an integer")
+                elif arg < 0:
+                    raise ValueError("x must be >= 0")
+                else:
+                    self.__x = arg
+            elif i == 4:
+                if not isinstance(arg, int):
+                    raise TypeError("y must be an integer")
+                elif arg < 0:
+                    raise ValueError("y must be >= 0")
+                else:
+                    self.__y = arg
+            i += 1
+
     def __str__(self):
         """Print repsentaion of the class"""
         i = self.id

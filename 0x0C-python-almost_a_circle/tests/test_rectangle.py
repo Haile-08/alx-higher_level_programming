@@ -306,5 +306,55 @@ class TestRectangleClass_display(unittest.TestCase):
         sys.stdout = sys.__stdout__
         self.assertEqual("\n\n ###\n ###\n", c.getvalue())
 
+
+class TestRectangleClass_update_args(unittest.TestCase):
+
+    def setUp(self):
+        self.r1 = Rectangle(10, 10, 10, 10)
+
+    def tearDown(self):
+        pass
+
+    def test_update_arg_1_param(self):
+        self.r1.update(8)
+        self.assertEqual('[Rectangle] (8) 10/10 - 10/10', str(self.r1))
+
+    def test_update_arg_2_param(self):
+        self.r1.update(8, 4)
+        self.assertEqual('[Rectangle] (8) 10/10 - 4/10', str(self.r1))
+
+    def test_update_arg_3_param(self):
+        self.r1.update(8, 4, 5)
+        self.assertEqual('[Rectangle] (8) 10/10 - 4/5', str(self.r1))
+
+    def test_update_arg_4_param(self):
+        self.r1.update(8, 4, 5, 9)
+        self.assertEqual('[Rectangle] (8) 9/10 - 4/5', str(self.r1))
+
+    def test_update_arg_5_param(self):
+        self.r1.update(8, 4, 5, 9, 12)
+        self.assertEqual('[Rectangle] (8) 9/12 - 4/5', str(self.r1))
+
+    def test_update_string(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            self.r1.update(1, "hi")
+
+    def test_update_range(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            self.r1.update(1, range(5))
+
+    def test_update_negative(self):
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            self.r1.update(1, -1)
+
+    def test_update_zero(self):
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            self.r1.update(1, 0)
+
+    def test_udpate_zero_x(self):
+        self.r1.update(1, 2, 3, 0)
+        self.assertEqual('[Rectangle] (1) 0/10 - 2/3', str(self.r1))
+
+
 if __name__ == '__main__':
     unittest.main()
