@@ -81,4 +81,8 @@ class Square(Rectangle):
         """Print reprsentaion of the class
         Return: [Square] (<id>) <x>/<y> - <size>
         """
-        return '[Square] ({}) {}/{} - {}'.format(self.id, self.x, self.y, self.width)
+        i = self.id
+        x = self.x
+        y = self.y
+        w = self.width
+        return '[Square] ({}) {}/{} - {}'.format(i, x, y, w)
