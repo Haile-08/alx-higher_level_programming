@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-    A script that lists all cities in a state from the database hbtn_0e_0_usa
+    A script that lidsts all cities in a state from the database hbtn_0e_0_usa
     Username, password and database name and state are given as user args
 """
 
